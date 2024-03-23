@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Revisited</title>
+</head>
+<body>
+    <script>
+        // Membuat Object Pada Javascript
+        // - Object Literal
+
+        let mahasiswa = {
+            // Property
+            nama: "Kiki Afrianto",
+            jurusan: "Manajemen",
+            rating: 10,
+
+            // method
+            review: function(point) {
+                this.rating += point
+                return console.info(`Saat ini rating kamu bertambah ${point} menjadi ${this.rating} point`)
+            }
+        }
+
+        // - Function Declaration
+        // Function declaration harus membuat variable dgn object kosong sebagai tampungan value di dalamnya
+        // Function declaration harus memiliki return agar bisa di eksekhsi
+
+        function Mahasiswa(nama,rating) {
+            // Membuat Object Kosong u/ Penampungan propertynya
+            let objMahasiswa = {}
+
+            // Property
+            objMahasiswa.nama = nama;
+            objMahasiswa.point = rating
+
+            // Method
+            objMahasiswa.review = (point)=> {
+                objMahasiswa.point += point
+                console.info(`Hi, ${objMahasiswa.nama} pointmu bertambah ${point}, total rating saat ini : ${objMahasiswa.point}`)
+            }
+
+            // contoh method u/ review buruk
+            objMahasiswa.zonk = (nilai) => {
+                objMahasiswa.point -= nilai
+                console.info(`Berita buruk, untuk ${objMahasiswa.nama} pointmu berkurang ${nilai}, total rating saat ini : ${objMahasiswa.point}`)
+            }
+
+            return objMahasiswa;
+        }
+
+        // Instance Object
+        const kiki = Mahasiswa("Kiki", 5)
+        const kevin = Mahasiswa("Kevin", 15)
+        kiki.review(10)
+        kiki.zonk(4)
+        kevin.review(15)
+        kevin.zonk(6)
+        console.info(kiki)
+        console.info(kevin)
+
+        // - Construtor Function (Keyword New)
+        // Constructor function tidak perlu membuat variable untuk menampung object
+        // Tidak perlu return
+
+        function Player(name,power) {
+            // property
+            this.name = name;
+            this.power = power;
+            // methode
+            this.addPower = (makan)=> {
+                this.power += makan
+                console.info(`Selamat Makan, power kamu nambah ${this.power}`)
+            }
+        }
+        
+        // Pada instance object ditambahkan kata kunci new
+        const kim = new Player('Kim', 8)
+        console.info(kim)
+        kim.addPower(80)
+
+        // - Object.create()
+
+        
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
