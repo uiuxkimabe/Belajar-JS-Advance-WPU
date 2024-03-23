@@ -28,35 +28,35 @@
         // Function declaration harus membuat variable dgn object kosong sebagai tampungan value di dalamnya
         // Function declaration harus memiliki return agar bisa di eksekusi
 
-        const methodMahasiswa = {
-            makan: function(porsi){
-                this.point += porsi;
-                console.info(`Halo ${this.nama}, selamat makan`)
-            },
-            main: function (porsi) {
-                this.point -= porsi;
-                console.info(`Halo ${this.nama}, selamat makan`)
-            },
-            tidur: function(jam) {
-                this.point += jam;
-                console.info(`Halo ${this.nama}, selamat tidurs`)
-            }
-        }
+        // const methodMahasiswa = {
+        //     makan: function(porsi){
+        //         this.point += porsi;
+        //         console.info(`Halo ${this.nama}, selamat makan`)
+        //     },
+        //     main: function (porsi) {
+        //         this.point -= porsi;
+        //         console.info(`Halo ${this.nama}, selamat makan`)
+        //     },
+        //     tidur: function(jam) {
+        //         this.point += jam;
+        //         console.info(`Halo ${this.nama}, selamat tidurs`)
+        //     }
+        // }
 
-        function Mahasiswa(nama,rating) {
-            // Membuat Object Kosong u/ Penampungan propertynya
-            // Memanggil object dari methodMahasiswa menjadi parameter di Object Create nya
-            let objMahasiswa = Object.create(methodMahasiswa);
+        // function Mahasiswa(nama,rating) {
+        //     // Membuat Object Kosong u/ Penampungan propertynya
+        //     // Memanggil object dari methodMahasiswa menjadi parameter di Object Create nya
+        //     let objMahasiswa = Object.create(methodMahasiswa);
 
-            // Property
-            objMahasiswa.nama = nama;
-            objMahasiswa.point = rating
+        //     // Property
+        //     objMahasiswa.nama = nama;
+        //     objMahasiswa.point = rating
 
-            return objMahasiswa;
-        }
+        //     return objMahasiswa;
+        // }
 
         // Instance Object
-        const kiki = Mahasiswa("Kiki", 5)
+        // const kiki = Mahasiswa("Kiki", 5)
         // kiki.makan(5)
         // kiki.main(8)
         // kiki.tidur(8)
@@ -86,34 +86,93 @@
 
         // Sebuah Object Berisi Method
 
-        const actionMethod = {
-            olahraga: function (jam) {
-                this.power += jam;
-                console.info(`Power bertambah ${jam} jadi ${this.power}`)
-            },
-            makan: function (porsi) {
-                this.power += porsi;
-                console.info(`Power bertambah ${porsi} jadi ${this.power}`)
-            },
-            activity: function (jam) {
-                this.power += jam;
-                console.info(`Power bertambah ${jam} jadi ${this.power}`)
+        // const actionMethod = {
+        //     olahraga: function (jam) {
+        //         this.power += jam;
+        //         console.info(`Power bertambah ${jam} jadi ${this.power}`)
+        //     },
+        //     makan: function (porsi) {
+        //         this.power += porsi;
+        //         console.info(`Power bertambah ${porsi} jadi ${this.power}`)
+        //     },
+        //     activity: function (jam) {
+        //         this.power += jam;
+        //         console.info(`Power bertambah ${jam} jadi ${this.power}`)
+        //     }
+        // }
+
+        // function Character(nama, power) {
+        //     let objKosong = Object.create(actionMethod);
+        //     objKosong.nama = nama;
+        //     objKosong.power = power;
+
+        //     return objKosong;
+        // }
+
+        // Instance Object
+        // const ilham = Character('Ilham',100);
+        // ilham.olahraga(10);
+        // ilham.makan(20);
+        // ilham.activity(5);
+
+
+        // Prototype inheritance
+        // function Mahasiswa (nama, energi) {
+        //     this.nama = nama;
+        //     this.energi = energi;
+        // }
+
+        // Mahasiswa.prototype.olahraga = function(jam) {
+        //     this.energi += jam;
+        //     return `Halo ${this.nama}, energi kamu bertambah ${jam}, sekarang jadi ${this.energi}`
+        // }
+
+        // Mahasiswa.prototype.makan = function (porsi) {
+        //     this.energi += porsi;
+        //     return `Halo ${this.nama}, energi kamu bertambah ${porsi}, sekarang jadi ${this.energi}`
+        // }
+
+        // Mahasiswa.prototype.activity = function(jam) {
+        //     this.energi -= jam;
+        //     return `Halo ${this.nama}, energi kamu bertambah ${jam}, sekarang jadi ${this.energi}`
+        // }
+
+        // let kiki = new Mahasiswa("kiki", 10);
+
+
+        // Versi CLass
+
+        class Personal {
+            constructor(nama, energi) {
+                this.nama = nama;
+                this.energi = energi;
+            }
+
+            // method
+            makan(porsi){
+                this.energi += porsi;
+                return `energi bertambah ${porsi}, jadi ${this.energi}`
+            }
+            // method
+            tidur(jam){
+                this.energi *= jam;
+                return `energi bertambah ${jam}, jadi ${this.energi}`
+            }
+            // method
+            lari(jam){
+                this.energi -= jam;
+                return `energi bertambah ${jam}, jadi ${this.energi}`
             }
         }
 
-        function Character(nama, power) {
-            let objKosong = Object.create(actionMethod);
-            objKosong.nama = nama;
-            objKosong.power = power;
+        const kiki = new Personal("kiki", 10)
+        let makan  = kiki.makan(5)
+        let tidur = kiki.tidur(5)
+        let lari = kiki.lari(5)
 
-            return objKosong;
-        }
+        console.table(makan,tidur,lari)
 
-        // Instance Object
-        const ilham = Character('Ilham',100);
-        ilham.olahraga(10);
-        ilham.makan(20);
-        ilham.activity(5);
+
 
 
     </script>
