@@ -9,89 +9,111 @@
     <script>
         // Membuat Object Pada Javascript
         // - Object Literal
+        // - Problem tidak efektif untuk object yang banyak
 
-        let mahasiswa = {
-            // Property
-            nama: "Kiki Afrianto",
-            jurusan: "Manajemen",
-            rating: 10,
+        // let mahasiswa = {
+        //     // Property
+        //     nama: "Kiki Afrianto",
+        //     jurusan: "Manajemen",
+        //     rating: 10,
 
-            // method
-            review: function(point) {
-                this.rating += point
-                return console.info(`Saat ini rating kamu bertambah ${point} menjadi ${this.rating} point`)
-            }
-        }
+        //     // method
+        //     review: function(point) {
+        //         this.rating += point
+        //         return console.info(`Saat ini rating kamu bertambah ${point} menjadi ${this.rating} point`)
+        //     }
+        // }
 
         // - Function Declaration
         // Function declaration harus membuat variable dgn object kosong sebagai tampungan value di dalamnya
-        // Function declaration harus memiliki return agar bisa di eksekhsi
+        // Function declaration harus memiliki return agar bisa di eksekusi
+
+        const methodMahasiswa = {
+            makan: function(porsi){
+                this.point += porsi;
+                console.info(`Halo ${this.nama}, selamat makan`)
+            },
+            main: function (porsi) {
+                this.point -= porsi;
+                console.info(`Halo ${this.nama}, selamat makan`)
+            },
+            tidur: function(jam) {
+                this.point += jam;
+                console.info(`Halo ${this.nama}, selamat tidurs`)
+            }
+        }
 
         function Mahasiswa(nama,rating) {
             // Membuat Object Kosong u/ Penampungan propertynya
-            let objMahasiswa = {}
+            // Memanggil object dari methodMahasiswa menjadi parameter di Object Create nya
+            let objMahasiswa = Object.create(methodMahasiswa);
 
             // Property
             objMahasiswa.nama = nama;
             objMahasiswa.point = rating
-
-            // Method
-            objMahasiswa.review = (point)=> {
-                objMahasiswa.point += point
-                console.info(`Hi, ${objMahasiswa.nama} pointmu bertambah ${point}, total rating saat ini : ${objMahasiswa.point}`)
-            }
-
-            // contoh method u/ review buruk
-            objMahasiswa.zonk = (nilai) => {
-                objMahasiswa.point -= nilai
-                console.info(`Berita buruk, untuk ${objMahasiswa.nama} pointmu berkurang ${nilai}, total rating saat ini : ${objMahasiswa.point}`)
-            }
 
             return objMahasiswa;
         }
 
         // Instance Object
         const kiki = Mahasiswa("Kiki", 5)
-        const kevin = Mahasiswa("Kevin", 15)
-        kiki.review(10)
-        kiki.zonk(4)
-        kevin.review(15)
-        kevin.zonk(6)
-        console.info(kiki)
-        console.info(kevin)
+        // kiki.makan(5)
+        // kiki.main(8)
+        // kiki.tidur(8)
 
         // - Construtor Function (Keyword New)
         // Constructor function tidak perlu membuat variable untuk menampung object
         // Tidak perlu return
 
-        function Player(name,power) {
-            // property
-            this.name = name;
-            this.power = power;
-            // methode
-            this.addPower = (makan)=> {
-                this.power += makan
-                console.info(`Selamat Makan, power kamu nambah ${this.power}`)
-            }
-        }
+        // function Player(name,power) {
+        //     // property
+        //     this.name = name;
+        //     this.power = power;
+        //     // methode
+        //     this.addPower = (makan)=> {
+        //         this.power += makan
+        //         console.info(`Selamat Makan, power kamu nambah ${this.power}`)
+        //     }
+        // }
         
         // Pada instance object ditambahkan kata kunci new
-        const kim = new Player('Kim', 8)
-        console.info(kim)
-        kim.addPower(80)
+        // const kim = new Player('Kim', 8)
+        // console.info(kim)
+        // kim.addPower(80)
 
         // - Object.create()
+        // Contoh penggunaan object create()
 
-        
+        // Sebuah Object Berisi Method
 
+        const actionMethod = {
+            olahraga: function (jam) {
+                this.power += jam;
+                console.info(`Power bertambah ${jam} jadi ${this.power}`)
+            },
+            makan: function (porsi) {
+                this.power += porsi;
+                console.info(`Power bertambah ${porsi} jadi ${this.power}`)
+            },
+            activity: function (jam) {
+                this.power += jam;
+                console.info(`Power bertambah ${jam} jadi ${this.power}`)
+            }
+        }
 
+        function Character(nama, power) {
+            let objKosong = Object.create(actionMethod);
+            objKosong.nama = nama;
+            objKosong.power = power;
 
+            return objKosong;
+        }
 
-
-
-
-
-
+        // Instance Object
+        const ilham = Character('Ilham',100);
+        ilham.olahraga(10);
+        ilham.makan(20);
+        ilham.activity(5);
 
 
     </script>
