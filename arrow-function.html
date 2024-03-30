@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function</title>
+</head>
+<body>
+    <script>
+
+        // Arrow Funtion adalah function yang bentuknya memperingkas penulisan code untuk function
+
+        // Contoh 1
+
+        const sapaNama = (nama, waktu) => {return console.info(`Hallo ${nama}, selamat ${waktu}`)}
+
+        sapaNama('Kiki', "Siang")
+
+        // Contoh 2 Implisit Return
+        // Penulisan kode function tanpa () di parameter serta tanpa keyword return
+        // digunakan ketika parameter hanya 1
+
+        const titipSalam = nama => console.info(`Hallo ${nama}`)
+        titipSalam('Afrianto')
+
+        // Contoh 2 Implisit Return tanpa parameter
+        const sapaSalam = ()=> console.info(`Hi`)
+        sapaSalam()
+
+
+        // Function map
+
+        let mahasiswa = ['Kiki Afrianto', 'Cindy Andriani', 'Ilham Saputra']
+
+        // Cara 1
+        // let jmlHuruf = mahasiswa.map((nama)=>{
+        //     return nama.length
+        // })
+
+        // Cara 2
+        // let jmlHuruf = mahasiswa.map(nama => nama.length)
+        // console.info(jmlHuruf) // Mengembalikan Array
+
+        // Cara 3 Jika ingin mengembalikan object maka implisit returnnya menggunakan tanda () diluar tanda {} jadi ({})
+        let jmlHuruf = mahasiswa.map(nama => ({
+            nama: nama,
+            jmlHuruf: nama.length
+        }))
+
+        console.table(jmlHuruf)
+
+
+    </script>
+</body>
+</html>

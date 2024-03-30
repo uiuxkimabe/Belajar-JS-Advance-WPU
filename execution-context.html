@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Execution Context</title>
+</head>
+<body>
+    <script>
+
+        // const nama = "kiki"
+        // console.info(nama)
+
+        // Creation Phase
+
+        // mengecek apakah ada variable atau function
+        // jika ada akan membuat variable dengan value default undefined
+        // jika ada function akan memiliki default value function itu sendiri
+        // disebut konsep hoisting
+        // mendifinikan object window = global object dan
+        // this = window
+
+        // Execution Phase
+
+        // Contoh
+        
+        // var nama = "Kiki"
+        // var usia = 28;
+        // console.info(sayHello())
+
+        // function sayHello() {
+        //     console.info(`Halo aku ${nama}, usia saya ${usia}`)
+        // }
+
+        // function seolah membuat local execution context
+        // di dalamnya ada fase creation & execution
+        // punya akses ke window dan
+        // dan akses ke arguments object
+        // didalamnya ada hoisting
+
+        // Studi Kasus
+
+        // var nama = 'kikiafriantobrata'
+        // var usernameIg = '@kikiafriantobrata'
+
+        // function cetakUrl() {
+        //     var instagramUrl = 'https://instagram.com/';
+        //     return instagramUrl + usernameIg
+        // }
+
+        // console.info(cetakUrl('@doddy'))
+
+        // Studi Kasus 2
+
+        // function a() {
+        //     console.info('ini function a')
+        //     function b() {
+        //         console.info('ini function b')
+        //         function c() {
+        //             console.info('ini function c')
+        //         }
+        //         c()
+        //     }
+        //     b()
+        // }
+
+        // a()
+
+
+        // Studi Kasus 3
+        
+        function satu() {
+            var nama = 'Kiki'
+            console.info(nama);
+        }
+
+        function dua() { 
+            console.info(nama);
+        }
+
+        console.info(nama) //undefined
+        var nama = 'Erik'
+        satu() // 'Kiki'
+        dua('doddy') // 'doddy'
+        console.info(nama);  // Erik
+    
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+</head>
+<body>
+    <script>
+
+        // Closure a/ function ketika memiliki akses ke parent scopenya. meskipun parent scopenya sudah dieksekusi
+        // Eksekusi akan di ambil nilai terakhir
+
+        // function init() {
+        //   let nama = 'Kiki';
+        //     function tampilNama() {
+        //         console.info(nama);
+        //     }
+        //     return tampilNama
+        // }
+
+        // let calling = init()
+        // calling()
+
+        // Lebih di persingkat 
+
+        // function init() {
+        //     return (nama)=> console.info(nama)
+        // }
+
+        // let calling = init()
+        // calling('Abah')
+        // calling('Aceng')
+
+        // Factory Function
+        // Seperti private method yang hanya bisa di panggil di dalam parentnya (local scope) 
+
+        // function ucapkanSalam(waktu) {
+        //     return (nama)=> console.info(`Hallo ${nama}, Selamat ${waktu}, semoga menyenagkan harimu`)
+        // }
+
+        // let morning = ucapkanSalam('Pagi') // otomatis menjadi function
+        // let noon = ucapkanSalam('Sore')
+        // let night = ucapkanSalam('Malam')
+
+        // console.info(morning('Ilham'))
+        // console.info(noon('sukma'))
+        // console.info(night('raya'))
+
+
+        // Contoh Lain Factory Function
+        
+        // let dzikir = (function(){
+        //     let counter = 0;
+        //     return function(){
+        //         return ++counter
+        //     }
+        // })();
+
+        // counter = 10
+
+        // console.info(dzikir())
+        // console.info(dzikir())
+        // console.info(dzikir())
+        // console.info(dzikir())
+        // console.info(dzikir())
+        // console.info(dzikir())
+        // console.info(dzikir())
+
+
+
+    </script>
+</body>
+</html>
