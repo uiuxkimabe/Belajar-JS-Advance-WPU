@@ -4,9 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arrow Function</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            margin: 50px auto;
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            transition: .3s width,
+                        .3s height .3s,
+                        .3s margin-top .3s,
+                        1s background-color;
+        }
+        .size {
+            width: 150px;
+            height: 150px;
+            margin-top: 25px;
+        }
+        .caption {
+            background-color: purple;
+        }
+    </style>
 </head>
 <body>
+
+
+
+    <div class="box"></div>
+
+
     <script>
+
+        const box = document.querySelector('.box')
+        box.addEventListener('click',()=> {
+
+            let satu = 'size'
+            let dua = 'caption'
+
+            if (box.classList.contains(satu)) {
+                [satu, dua] = [dua, satu]
+            }
+            
+            box.classList.toggle('size')
+            setTimeout(() => {
+                box.classList.toggle('caption')
+            }, 600);
+
+            
+
+
+        })
 
         // Arrow Funtion adalah function yang bentuknya memperingkas penulisan code untuk function
 
@@ -42,13 +92,44 @@
         // console.info(jmlHuruf) // Mengembalikan Array
 
         // Cara 3 Jika ingin mengembalikan object maka implisit returnnya menggunakan tanda () diluar tanda {} jadi ({})
-        let jmlHuruf = mahasiswa.map(nama => ({
-            nama: nama,
-            jmlHuruf: nama.length
-        }))
+        // let jmlHuruf = mahasiswa.map(nama => ({
+        //     nama: nama,
+        //     jmlHuruf: nama.length
+        // }))
 
-        console.table(jmlHuruf)
+        // console.table(jmlHuruf)
 
+        // Arrow Function Pada Constructor Function
+        // Arrow Function Tidak Bisa Digunakan Pada Constructor Function, kecuali pada method di dalamnya
+
+        // const Person = function() {
+        //     this.nama = 'Kiki',
+        //     this.umur = 28,
+        //     this.sayHello = ()=> {
+        //         console.info(`Hello aku ${this.nama}, aku umur ${this.umur}`)
+        //     }
+
+        //     setInterval(() => {
+        //         console.info(this.umur++)
+        //     }, 1000);
+            
+
+        // }
+
+        // const kiki = new Person()
+
+        // Sebaliknya arrow function tidak bisa digunakan untuk this pada method jika berupa object literal, di object literal function pada method menggunakan function biasa
+        // contoh
+
+        // const manusia = {
+        //     nama: "Edoh",
+        //     umur: 33,
+        //     salam: function () {
+        //         console.info(`Hello nama aku ${this.nama}, ${this.umur}`)
+        //     }
+        // }
+
+        // const abdul = manusia
 
     </script>
 </body>
