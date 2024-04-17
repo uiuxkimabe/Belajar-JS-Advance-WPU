@@ -41,7 +41,29 @@
 
         const kaliDua = angka.map(a => a * 2); // parameter a untuk representasi untuk tiap" element di variable angka
         console.info(kaliDua)
-        console.info(kaliDua.sort())
+        
+        // REDUCE
+        // melakukan sesuatu pada seluruh element array
+        // contoh menjumlahkan seluruh elemetn pada array
+
+        const angkaBaru = angka.reduce((accumulator, currentValue) => accumulator + currentValue) 
+        console.info(angkaBaru)
+
+        // Methode Chaining
+        // Menggabungkan fungsi" pada higher function dalam sekali function
+
+        // Cari angka > 5
+        // Kalikan 3 
+        // dan Jumlahkan
+
+        const result = angka.filter(angka => angka > 5) // [8,9,9]
+        .map(angka => angka * 3) // [24,27,27]
+        // .map(angka => angka / angka)
+        .reduce((acc, curVal) => acc + curVal) // 78
+
+        console.info(result)
+
+       
 
     </script>
 </body>
