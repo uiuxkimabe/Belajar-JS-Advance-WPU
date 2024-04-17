@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter, Map, Reduce</title>
+</head>
+<body>
+    <script>
+
+        // Higher Order Function Yang Paling Sering Digunakan
+        // Array.Prototype.filter //-> memfilter sesuai dengan yang diinginkan
+        // Array.Prototype.map //-> membuat / menghasilkan array baru
+        // Array.Prototype.reduce //-> menggabungkan array baru menjadi 1 function yang dinginkan (menghasilkan array baru)
+
+        // Contoh
+
+        const angka = [-1,8,9,1,4,-5,-4,3,2,9]
+
+        // FILTER
+        // mencari angka >= 3 menggunakan looping for
+
+        // let arrKosong = []
+
+        // for (let i = 0; i <= angka.length; i++) {
+        //     if (angka[i] >= 3) {
+        //         arrKosong.push(angka[i])
+        //         arrKosong.sort()
+        //     }
+        // }
+
+        // console.info(arrKosong)
+
+        // Menggunakan filter array
+
+        const angkaFilter = angka.filter((a) => a>=3);
+
+        console.info(angkaFilter)
+
+    </script>
+</body>
+</html>
