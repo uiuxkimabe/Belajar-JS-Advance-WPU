@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher Order Function</title>
+</head>
+<body>
+    <script>
+
+        // High Order Function adalah sebuah function yang memiliki argument / parameter berupa function juga
+        // sedangkan function yag menjadi argument / parameter sebuah function disebut sebagai callback
+
+        // contoh higher order function
+        function kerjakanTugas(mataPelajaran, tugasSelesai) {
+            console.info(`Mulai mengerjakan tugas ${mataPelajaran}...`)
+            tugasSelesai() // -> Function yang menjadi arguments maka harus membuat function argument tersebut
+        }
+
+        // callback (function yang menjadi argument pada function dengan nama 'kerjakanTugas')
+        function tugasSelesai() {
+            alert("Tugas Selesai Dikerjakan")
+        }
+
+
+        // higher order function membuat coding lebih efektif dengan menempatkan kerumitan kode kedalam sebuah function
+        // agar lebih efektif lagi saat dipanggil, yang sangat reusable dan editable tanpa menyentuh baris kode secara langsung
+
+        // contoh, kita ingin mengulang angka, lalu ingin ditampilkan dalam 2 opsi, bisa alert atau console log
+
+        function repeat(n, action) {
+            for (let i = 0; i < n; i++) {
+                action(i)
+            }
+        }
+
+        repeat(100, console.info) // Ingin menampilkan pengulangan sebanyak 10 kali ditampilkan dalam console
+        // repeat(5, alert) // Ingin menampikan pengulangan sebanyak 5 kali ditampilkan dalam alert
+
+
+    </script>
+</body>
+</html>

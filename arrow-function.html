@@ -17,7 +17,7 @@
             transition: .3s width,
                         .3s height .3s,
                         .3s margin-top .3s,
-                        1s background-color;
+                        .1s background-color;
         }
         .size {
             width: 150px;
@@ -47,7 +47,7 @@
             if (box.classList.contains(satu)) {
                 [satu, dua] = [dua, satu]
             }
-            
+
             box.classList.toggle('size')
             setTimeout(() => {
                 box.classList.toggle('caption')
