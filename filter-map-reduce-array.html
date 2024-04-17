@@ -33,9 +33,15 @@
 
         // Menggunakan filter array
 
-        const angkaFilter = angka.filter((a) => a>=3);
-
+        const angkaFilter = angka.filter((a) => a>=3); // parameter a untuk representasi untuk tiap" element di variable angka
         console.info(angkaFilter)
+
+        // MAP
+        // mengalikan semua angka pada array di variable angka
+
+        const kaliDua = angka.map(a => a * 2); // parameter a untuk representasi untuk tiap" element di variable angka
+        console.info(kaliDua)
+        console.info(kaliDua.sort())
 
     </script>
 </body>
