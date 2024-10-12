@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Object revisited dengan class
+        // Tugas !, 
+        // membuat object class tentang hero dengan nama karakter beda dan power default bebas
+        // buat 3 buah tombol dgn function untuk menambah speed, strength, dan attack
+        // tombol 1 menambah kecepatan nilai defaultnya 10 dan akan menambah ke power bawaannya
+        // tombol 2 menambah kekuatan nilai defaultnya 10 dan akan menambah ke power bawaannya
+        // tombol 3 mengurangi power default sebesar 20
+        
+
+         class Hero {
+                constructor(characterName, power) {
+                    this.name = characterName;
+                    this.ability = power;
+                    this.defaultEnergy = 10;
+                    this.attack = 20;
+                }
+
+                // Method Additional Power
+                boostSpeed() {
+                    this.ability += this.defaultEnergy;
+                    alert(`Hi ${this.name} your speed has been added ${this.defaultEnergy}
+                your ability is : ${this.ability}`)
+                }
+
+                boostStrength() {
+                    this.ability += this.defaultEnergy;
+                    alert(`Hi ${this.name} your strength has been added ${this.defaultEnergy}
+                your ability is : ${this.ability}`)
+                }
+
+                // Method Decrement Power
+                warEnemy() {
+                    this.ability -= this.attack;
+                    alert(`Hi ${this.name} your ability has been decrement ${this.attack}, your ability is : ${this.ability}`)
+                }
+            }
+
+            const kimabe = new Hero('Kimabe', 1000);
+
+            function addSpeed() {
+                kimabe.boostSpeed()
+            }
+
+            function addStrength() {
+                kimabe.boostStrength()
+            }
+
+            function war() {
+                kimabe.warEnemy()
+            }
+    </script>
+</body>
+</html>

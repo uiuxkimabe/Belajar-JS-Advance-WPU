@@ -6,6 +6,9 @@
     <title>Object Revisited</title>
 </head>
 <body>
+    <button onclick="addSpeed()">tambah speed</button>
+    <button onclick="addStrength()">tambah power</button>
+    <button onclick="war()">serang lawan</button>
     <script>
         // Membuat Object Pada Javascript
         // - Object Literal
@@ -141,38 +144,39 @@
 
 
         // Versi CLass
+        // Contoh 1
 
-        class Personal {
-            constructor(nama, energi) {
-                this.nama = nama;
-                this.energi = energi;
-            }
+        // class Personal {
+        //     constructor(nama, energi) {
+        //         this.nama = nama;
+        //         this.energi = energi;
+        //     }
 
-            // method
-            makan(porsi){
-                this.energi += porsi;
-                return `energi bertambah ${porsi}, jadi ${this.energi}`
-            }
-            // method
-            tidur(jam){
-                this.energi *= jam;
-                return `energi bertambah ${jam}, jadi ${this.energi}`
-            }
-            // method
-            lari(jam){
-                this.energi -= jam;
-                return `energi bertambah ${jam}, jadi ${this.energi}`
-            }
-        }
+        //     // method
+        //     makan(porsi){
+        //         this.energi += porsi;
+        //         return `energi bertambah ${porsi}, jadi ${this.energi}`
+        //     }
+        //     // method
+        //     tidur(jam){
+        //         this.energi *= jam;
+        //         return `energi bertambah ${jam}, jadi ${this.energi}`
+        //     }
+        //     // method
+        //     lari(jam){
+        //         this.energi -= jam;
+        //         return `energi bertambah ${jam}, jadi ${this.energi}`
+        //     }
+        // }
 
-        const kiki = new Personal("kiki", 10)
-        let makan  = kiki.makan(5)
-        let tidur = kiki.tidur(5)
-        let lari = kiki.lari(5)
+        // const kiki = new Personal("kiki", 10)
+        // let makan  = kiki.makan(5)
+        // let tidur = kiki.tidur(5)
+        // let lari = kiki.lari(5)
 
-        console.table(makan,tidur,lari)
+        // console.table(makan,tidur,lari)
 
-
+       
 
 
     </script>
