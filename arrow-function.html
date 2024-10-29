@@ -26,6 +26,7 @@
         }
         .caption {
             background-color: purple;
+            /* transition: .3s ease-in-out; */
         }
     </style>
 </head>
@@ -38,98 +39,47 @@
 
     <script>
 
-        const box = document.querySelector('.box')
-        box.addEventListener('click',()=> {
+         // Arrow Funtion adalah function lain yang lebih ringkas dari functions expression
 
-            let satu = 'size'
-            let dua = 'caption'
+        //  contoh functions expressions
 
-            if (box.classList.contains(satu)) {
-                [satu, dua] = [dua, satu]
-            }
+        const tampilNama = function (nama) { return console.info(`Hello ${nama}`) }
+        // Panggil Function Expression
+        tampilNama('Kiki')
 
-            box.classList.toggle('size')
-            setTimeout(() => {
-                box.classList.toggle('caption')
-            }, 600);
+        // contoh function expression dengan arrow function
 
-            
+        const showName = (nama) => {return console.info(`Hello ${nama}`)}
+        showName('Afrianto')
 
+        // atau
+        // cara implisit return (parameter / argumentsnya tdk lebih dari 1)
+        const panggilNama = nama => console.info(`Hallo ${nama}`)
+        panggilNama('Brata')
 
+        // contoh lain Function 
+        let karyawan = ["Kiki", "Afrianto", "Brata"]
+        
+        let jmlHuruf = karyawan.map(function(nama) {
+            return nama.length 
         })
+        console.info(jmlHuruf)
 
-        // Arrow Funtion adalah function yang bentuknya memperingkas penulisan code untuk function
+        let mahasiswa = ["Kiki", "Afrianto", "Brata"]
+        let totalHuruf = mahasiswa.map(nama => nama.length)
 
-        // Contoh 1
+        console.info(totalHuruf)
 
-        const sapaNama = (nama, waktu) => {return console.info(`Hallo ${nama}, selamat ${waktu}`)}
+        // contoh lain
+        let pasukan = ["Kiki", "Afrianto", "Brata"]
+        let detailPasukan = pasukan.map(nama => ({
+            nama : nama,
+            jmlNama : nama.length,
+        }))
 
-        sapaNama('Kiki', "Siang")
+        console.table(detailPasukan)
 
-        // Contoh 2 Implisit Return
-        // Penulisan kode function tanpa () di parameter serta tanpa keyword return
-        // digunakan ketika parameter hanya 1
-
-        const titipSalam = nama => console.info(`Hallo ${nama}`)
-        titipSalam('Afrianto')
-
-        // Contoh 2 Implisit Return tanpa parameter
-        const sapaSalam = ()=> console.info(`Hi`)
-        sapaSalam()
-
-
-        // Function map
-
-        let mahasiswa = ['Kiki Afrianto', 'Cindy Andriani', 'Ilham Saputra']
-
-        // Cara 1
-        // let jmlHuruf = mahasiswa.map((nama)=>{
-        //     return nama.length
-        // })
-
-        // Cara 2
-        // let jmlHuruf = mahasiswa.map(nama => nama.length)
-        // console.info(jmlHuruf) // Mengembalikan Array
-
-        // Cara 3 Jika ingin mengembalikan object maka implisit returnnya menggunakan tanda () diluar tanda {} jadi ({})
-        // let jmlHuruf = mahasiswa.map(nama => ({
-        //     nama: nama,
-        //     jmlHuruf: nama.length
-        // }))
-
-        // console.table(jmlHuruf)
-
-        // Arrow Function Pada Constructor Function
-        // Arrow Function Tidak Bisa Digunakan Pada Constructor Function, kecuali pada method di dalamnya
-
-        // const Person = function() {
-        //     this.nama = 'Kiki',
-        //     this.umur = 28,
-        //     this.sayHello = ()=> {
-        //         console.info(`Hello aku ${this.nama}, aku umur ${this.umur}`)
-        //     }
-
-        //     setInterval(() => {
-        //         console.info(this.umur++)
-        //     }, 1000);
-            
-
-        // }
-
-        // const kiki = new Person()
-
-        // Sebaliknya arrow function tidak bisa digunakan untuk this pada method jika berupa object literal, di object literal function pada method menggunakan function biasa
-        // contoh
-
-        // const manusia = {
-        //     nama: "Edoh",
-        //     umur: 33,
-        //     salam: function () {
-        //         console.info(`Hello nama aku ${this.nama}, ${this.umur}`)
-        //     }
-        // }
-
-        // const abdul = manusia
+       
 
     </script>
 </body>

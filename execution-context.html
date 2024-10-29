@@ -17,7 +17,7 @@
         // jika ada akan membuat variable dengan value default undefined
         // jika ada function akan memiliki default value function itu sendiri
         // disebut konsep hoisting
-        // mendifinikan object window = global object dan
+        // mendefinisikan object window = global object dan
         // this = window
 
         // Execution Phase
@@ -29,7 +29,7 @@
         // console.info(sayHello())
 
         // function sayHello() {
-        //     console.info(`Halo aku ${nama}, usia saya ${usia}`)
+        //     return `Halo aku ${nama}, usia saya ${usia}`
         // }
 
         // function seolah membuat local execution context
@@ -43,28 +43,28 @@
         // var nama = 'kikiafriantobrata'
         // var usernameIg = '@kikiafriantobrata'
 
-        // function cetakUrl() {
+        // function cetakUrl(usernameIg) {
         //     var instagramUrl = 'https://instagram.com/';
         //     return instagramUrl + usernameIg
         // }
 
-        // console.info(cetakUrl('@doddy'))
+        // console.info(cetakUrl('@raninfdlh_'))
 
         // Studi Kasus 2
 
-        // function a() {
-        //     console.info('ini function a')
-        //     function b() {
-        //         console.info('ini function b')
-        //         function c() {
-        //             console.info('ini function c')
-        //         }
-        //         c()
-        //     }
-        //     b()
-        // }
+        function a() {
+            console.info('ini function a')
+            function b() {
+                console.info('ini function b')
+                function c() {
+                    console.info('ini function c')
+                }
+                c()
+            }
+            b()
+        }
 
-        // a()
+        a()
 
 
         // Studi Kasus 3
@@ -77,6 +77,8 @@
         function dua() { 
             console.info(nama);
         }
+
+        console.info(dua('doddy'))
 
         console.info(nama) //undefined
         var nama = 'Erik'

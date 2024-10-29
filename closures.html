@@ -9,28 +9,31 @@
     <script>
 
         // Closure a/ function ketika memiliki akses ke parent scopenya. meskipun parent scopenya sudah dieksekusi
+        // CLosure itu menggunakan lexical scope (membutuhkan variable dari parentnya)
         // Eksekusi akan di ambil nilai terakhir
 
-        // function init() {
+        function init() {
         //   let nama = 'Kiki';
-        //     function tampilNama() {
-        //         console.info(nama);
-        //     }
-        //     return tampilNama
-        // }
+            function tampilNama(nama) {
+                console.info(nama);
+            }
+
+            // tampilNama()
+            return tampilNama // me return sebuah function tanpa tanda kurung
+        }
 
         // let calling = init()
-        // calling()
+        // calling('Kiki')
 
         // Lebih di persingkat 
 
-        // function init() {
-        //     return (nama)=> console.info(nama)
-        // }
+        function init() {
+            return (nama)=> console.info(nama)
+        }
 
-        // let calling = init()
-        // calling('Abah')
-        // calling('Aceng')
+        let calling = init()
+        calling('Abah')
+        calling('Aceng')
 
         // Factory Function
         // Seperti private method yang hanya bisa di panggil di dalam parentnya (local scope) 
@@ -67,7 +70,18 @@
         // console.info(dzikir())
         // console.info(dzikir())
 
+        let increment = (function () {
+            let counter = 0;
+            return function() {
+                return ++counter
+            }
+        })()
 
+        // let callingI = increment()
+
+        console.info(increment())
+        console.info(increment())
+        console.info(increment())
 
     </script>
 </body>
