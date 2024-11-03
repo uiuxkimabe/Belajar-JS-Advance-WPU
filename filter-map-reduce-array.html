@@ -13,56 +13,46 @@
         // Array.Prototype.map //-> membuat / menghasilkan array baru
         // Array.Prototype.reduce //-> menggabungkan array baru menjadi 1 function yang dinginkan (menghasilkan array baru)
 
-        // Contoh
+        // Contoh High Order Function (FILTER)
+        // mencari angka yang lebih besar dari 3
 
         const angka = [-1,8,9,1,4,-5,-4,3,2,9]
+        // const arrKosong = []
+    
+        // Penyelesaian menggunakan looping for
 
-        // FILTER
-        // mencari angka >= 3 menggunakan looping for
-
-        // let arrKosong = []
-
-        // for (let i = 0; i <= angka.length; i++) {
+        // for (let i = 0; i < angka.length; i++) {
         //     if (angka[i] >= 3) {
         //         arrKosong.push(angka[i])
-        //         arrKosong.sort() // untuk mensortir sesuai urutan angka dari yang terkecil ke yang besar
         //     }
         // }
 
-        // console.info(arrKosong)
+        // Penyelesaian Dengan Filter dengan Arrow Functions
+        const arrKosong = angka.filter((e) => e >= 3)
+        console.info(arrKosong)
 
-        // Menggunakan filter array
+        // Contoh High Order Functions Map dengan Arrow Function
+        // Map digunakan untuk melakukan perubahan pada nilai dalam array.
+        // kalikan semua angka dengan 2
 
-        const angkaFilter = angka.filter((a) => a>=3); // parameter a untuk representasi untuk tiap" element di variable angka
-        console.info(angkaFilter)
+        const upAngka = angka.map((e) => e *= 2);
+        console.info(upAngka)
 
-        // MAP
-        // mengalikan semua angka pada array di variable angka
+        // Contoh High Order Function Reduce dengan Arrow Function
+        const sumArrAngka = angka.reduce((summary, currentValue) => summary + currentValue)
+        console.info(sumArrAngka)
 
-        const kaliDua = angka.map(a => a * 2); // parameter a untuk representasi untuk tiap" element di variable angka
-        console.info(kaliDua)
-        
-        // REDUCE
-        // melakukan sesuatu pada seluruh element array
-        // contoh menjumlahkan seluruh elemetn pada array
-
-        const angkaBaru = angka.reduce((accumulator, currentValue) => accumulator + currentValue) 
-        console.info(angkaBaru)
-
-        // Methode Chaining
-        // Menggabungkan fungsi" pada higher function dalam sekali function
-
+        // Method Chaining
+        // menggabungkan semua methode atau function tadi
         // Cari angka > 5
-        // Kalikan 3 
-        // dan Jumlahkan
+        // Kalikan 3
+        // Jumlah
 
-        const result = angka.filter(angka => angka > 5) // [8,9,9]
-        .map(angka => angka * 3) // [24,27,27]
-        // .map(angka => angka / angka)
-        .reduce((acc, curVal) => acc + curVal) // 78
+        const hasil = angka.filter(e => e >= 5)
+        .map(e => e * 3)
+        .reduce((sum, val) => sum + val);
 
-        console.info(result)
-
+        console.info(hasil)
        
 
     </script>
