@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Filter Map Reduce 2</title>
+</head>
+<style>
+    body {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+</style>
+<body>
+    <div class="col">
+        <h3>Room List</h3>
+        <ul>
+            <li data-price="650.000">Cluster Bougenville | OTA</li>
+            <li data-price="750.000">Cluster Catalya | OTA</li>
+            <li data-price="550.000">Cluster Rose | Walk In</li>
+            <li data-price="600.000">Cluster Bougenville | Walk In</li>
+            <li data-price="600.000">Cluster Bougenville | Walk In</li>
+            <li data-price="650.000">Cluster Bougenville | OTA</li>
+            <li data-price="600.000">Cluster Rose | OTA</li>
+            <li data-price="600.000">Cluster Rose | OTA</li>
+            <li data-price="600.000">Cluster Rose | OTA</li>
+            <li data-price="600.000">Cluster Rose | OTA</li>
+            <li data-price="700.000">Cluster Catalya | Walk In</li>
+            <li data-price="600.000">Cluster Bougenville | Walk In</li>
+            <li data-price="750.000">Cluster Catalya | OTA</li>
+        </ul>
+    </div>
+    <div class="col">
+        <h3>Daily Sales Report</h3>
+        <ol>
+            <li>
+                <h4>Room Sold</h4>
+                <p>Total Room Sold : <span class="room-sold"></span></p>
+            </li>
+            <li>
+                <h4>Occupancy</h4>
+                <p>Total Occupancy : <span class="occupancy"></span></p>
+            </li>
+            <li>
+                <h4>Room by OTA</h4>
+                <p>Total OTA : <span class="room-ota"></span></p>
+            </li>
+            <li>
+                <h4>Room by Walk In</h4>
+                <p>Total Walk In : <span class="room-wi"></span></p>
+            </li>
+            <li>
+                <h4>Room by Cluster Rose Walk In</h4>
+                <p>Total Revenue Cluster Rose : <span class="total-rose-wi"></span></p>
+            </li>
+            <li>
+                <h4>Room by Cluster Rose OTA</h4>
+                <p>Total Revenue Cluster Rose OTA : <span class="total-rose-ota"></span></p>
+            </li>
+            <li>
+                <h4>Room by Cluster Bougenville Walk In</h4>
+                <p>Total Revenue Cluster Bougenville: <span class="total-bougenville-wi"></span></p>
+            </li>
+            <li>
+                <h4>Room by Cluster Bougenville OTA</h4>
+                <p>Total Revenue Cluster Bougenville OTA : <span class="total-bougenville-ota"></span></p>
+            </li>
+            <li>
+                <h4>Room by Cluster Catalya Walk In</h4>
+                <p>Total Revenue Cluster catalya: <span class="total-catalya-wi"></span></p>
+            </li>
+            <li>
+                <h4>Room by Cluster Catalya OTA</h4>
+                <p>Total Revenue Cluster catalya OTA : <span class="total-catalya-ota"></span></p>
+            </li>
+        </ol>
+    </div>
+
+    <script src="script-latihan-filter-map-reduce2.js"></script>
+</body>
+</html>
