@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Literal</title>
+</head>
+<body>
+    <script>
+        // Template Literal / Template String
+
+        // Hanya bisa menggunakan `` backtick
+        // MultiLine String
+        // Embedded Expression
+        // HTML Fragments
+        // Expression Interpolation
+        // Tangged template
+
+        // Contoh Embedded Expressions
+        const nama = "Kiki Afrianto";
+        const umur = 30
+        console.info(`Halo Nama saya ${nama}, umur saya ${umur} tahun`)
+        console.info(`${1 + 1}`)
+
+        const x = 10
+        console.info(`${(x % 2 == 0) ? "Genap" : "Ganjil"}`)
+
+
+        // HTML Fragment
+        const mhs = {
+            nama : "kiki",
+            umur : 30,
+            nrp : "12041308",
+            email: "kikiafrianto@uncala.org"
+        }
+
+        const el = `<div class="mhs">
+            <h2 class="nama">${mhs.nama}</h2>
+            <h2 class="nrp">${mhs.nrp}</h2>
+        </div>`
+
+        console.info(el)
+
+    </script>
+</body>
+</html>

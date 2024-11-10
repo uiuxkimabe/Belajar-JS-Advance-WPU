@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Fragments</title>
+</head>
+<body>
+    <script>
+        // HTML Fragement
+
+
+        // const mhs = {
+        //     nama : "Kiki Afrianto",
+        //     umur : 29,
+        //     nrp : "13081204",
+        //     email : "kikiafrianto@ownerbgroup.com"
+        // }
+
+        // const show = `<div class="mhs">
+        //         <h2 class="nama">${mhs.nama}</h2>
+        //         <span class="umur">Usia ${mhs.umur} Tahun</span><br>
+        //         merupakan seorang mahasiswa di Institute Teknologi Bandung <br>
+        //         dengan nomor NRP : ${mhs.nrp}
+        //     </div>  `
+        
+        // Looping
+        // const karyawan = [
+        //     {
+        //         nama: "Kiki Afrianto",
+        //         jabatan: "CEO"
+        //     },
+        //     {
+        //         nama: "Raniah Nurfadilah",
+        //         jabatan: "CTO"
+        //     },
+        //     {
+        //         nama: "Wima Akstara Ekapaksi",
+        //         jabatan: "Director"
+        //     }
+        // ]
+
+        // const show = `
+        //     <div class="karyawan">
+        //         ${karyawan.map(structure => `<ul>
+        //                 <li>${structure.nama}</li>
+        //                 <li>${structure.jabatan}</li>
+        //             </ul>`).join("")}    
+        //     </div>
+        // `
+
+        // Conditional
+        // ternary
+        // const lagu = {
+        //     judul : 'Lepaskan Diriku',
+        //     penyanyi : "Jrocks",
+        //     // version : "Japan",
+        //     feat: "One Oke Rock"
+        // }
+
+        // const show = `
+        //     <div class = "lagu">
+        //         <ul>
+        //             <li>${lagu.judul}</li>
+        //             <li>${lagu.penyanyi}</li>
+        //             <li>${lagu.version ? `Versi (Feat. ${lagu.feat})` : "Versi Indonesia"}</li>
+        //         </ul>    
+        //     </div>
+        // `
+
+        // Nested
+        const mhs = {
+            nama : "Kiki Afrianto",
+            semester : 6,
+            mataKuliah : [
+                'Pemograman Web',
+                'Ethical Hacking',
+                'Arificial Intelligent',
+                'Data Science'
+            ]
+        }
+
+        function cetakMataKuliah(listMataKuliah) {
+            return `
+                <ol>
+                    ${listMataKuliah.map(list => 
+                        `<li>${list}</li>
+                        `
+                    )}    
+                </ol>
+            `
+        }
+
+        const show = `
+            <div class="mhs">
+                <h3>${mhs.nama}</h3>
+                <p>Mahasiswa Semester : ${mhs.semester}</p>
+                <p>List Mata Kuliah : </p>
+                ${cetakMataKuliah(mhs.mataKuliah)}
+            </div>
+        `
+
+        document.body.innerHTML = show
+    </script>
+</body>
+</html>
