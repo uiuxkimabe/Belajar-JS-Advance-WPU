@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag - Template Literal</title>
+    <style>
+        .marker{background-color: lightgreen; color: darkgreen; font-weight: bolder;}
+    </style>
+</head>
+<body>
+    <!-- <span class="marker">test</span> -->
+    <script>
+        // Tag Template Literal a/ template literal yang lebih kompleks dimana membaca template literal bisa di masukkan dalam sebuah function
+        // Contoh Tagged Template
+
+        // const nama = 'Kiki Afrianto'
+        // const umur = 29
+
+        // const str = `Halo nama saya, ${nama}, usia saya ${umur} tahun.`
+        // console.info(str)
+
+        // Tagged template bisa dipanggil dengan function
+        // Kita dapat memanggil functionnya di depan template stringnya
+        // function test(param, ...data){
+        //     // let str = ''
+        //     // param.forEach((element, i) => {
+        //     //     str += `${element} ${data[i] || ''}`
+        //     // });
+            
+        //     // return str
+        // }
+
+        // Ketika function me return sebuah parameter lalu function di panggil pada template literal maka akan menghasilkan sebuah array
+        // Yang berisi string yang dipisahkan oleh expression dari variable yang di panggil
+        // Namun bila expression ditempatkan jadi parameter pertama di functionnya maka tidak akan bisa di panggil
+        // (Expression) harus di posisikan menjadi parameter ke 2 atau seterusnya.
+        // Untuk memanggil beberapa expression jadi parameter bisa menggunakan rest parameter ...(nama rest parameter (bebas)) 
+        // Maka rest parameter akan mengembalikan expression dalam bentuk array
+
+        // const calling = highlight`Halo nama saya, ${nama}, usia saya ${umur} tahun.`
+        // console.info(calling)
+
+        // Contoh Lain
+        // function highlight(params, ...data) {
+        //     let accumulator = ''
+        //     return params.reduce((accumulator, paramsData, i) => `${accumulator}${paramsData}${data[i] || ""}`, "")
+        // }
+
+        // Contoh Marker hasil pencarian
+        const nama = "Kiki Afrianto"
+        const umur = 29
+        const email = "kikiafriantobrata@gmail.com"
+
+        function mark(show, ...values) {
+            return show.reduce((result, showparam, i) => `${result}${showparam}<span class="marker">${values[i] || ""}</span>`,"")
+        }
+
+        const showing = mark`Halo nama saya presdir ${nama}, usia saya ${umur}, email saya ${email}`
+        document.body.innerHTML = showing
+
+        console.info(showing)
+
+    </script>
+</body>
+</html>
