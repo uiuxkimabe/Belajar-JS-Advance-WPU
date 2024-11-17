@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destruturing Assignment</title>
+</head>
+<body>
+    <script>
+        // Desctructuring Assignment adalah cara untuk membongkar nilai expression pada sebuah array atau object untuk dijadikan variable tersendiri
+
+        // contoh destructuring pada array
+        const type = ['Standar', 'Premium', 'VIP']
+        // lakukan destructuring dengan cara berikut :
+        // untuk array penamaan destructuring bebas
+        const [typeStd, typePremium, typeVip] = type // <- const membuat variable tersendiri dari nilai masing - masing array di variable type
+        console.info(typeStd) // Standar
+        console.info(typePremium) // Premium
+        console.info(typeVip) //VIP
+
+        // untuk menskip nilai array yang ingin di destructuring maka kosongkan nilainya namun tetap pisahkan dengan koma
+        const [std,,vip] = type // <- premium tidak di seleksi untuk di destructuring (dilompati / kosongkan) pisahkan dengan koma
+        console.log(std) // Standar
+        console.log(vip) // VIP
+
+        // Swap item / nilai dengan destructuring
+        let a = 1;
+        let b = 2;
+        // console.info(a) // 1
+        // console.info(b) // 2
+        [a, b] = [b, a] // <- dengan destructuring menukar nilai antar variable
+        console.info(a) // 2
+        console.info(b) // 1
+
+        // Return Value pada Function
+        function test() {
+            return [12,13]
+        }
+        const [x, y] = test() // <- destructuring nilai array pada sebuah function
+        console.info(x) // 12
+        console.info(y) // 13
+
+        // Rest Parameter Destructuring
+        const [k, ...r] = [1,2,3,4,5] // <- k menjadi variable nilai array 1 dan rest parameter ...r sisa nilainya menjadi array terpisah
+        console.info(k) // <- k menjadi variable nilai array 1
+        console.info(r) // dan rest parameter ...r sisa nilainya menjadi array terpisah
+
+
+        // Contoh destructuring pada object
+        // const karyawan = {
+        //     nama: "Kiki Afrianto",
+        //     kelas: 302,
+        //     email: "kikiaja@gmail.com"
+        // }
+        // lakukan destructuring dengan cara berikut :
+        // untuk object penamaan destructuring harus sesuai dengan property object nya
+
+        // const {nama, kelas, email} = karyawan // <- const memecah nilai (argument) sebuah object menjadi variable tersendiri di variable karyawan
+        // console.info(nama) // "Kiki Afrianto"
+        // console.info(kelas) // 302
+        // console.info(email) // kikiaja@gmail.com
+
+        // Destructuring Object tanpa deklarasi object terlebih dahulu
+        // ({ nama, umur} = {
+        //     nama: "Kiki Afrianto",
+        //     umur: 29
+        // })
+        // console.info(nama)
+
+        // Mengganti nama property object dengann nama lain pada saat destructuring
+        const personal = {
+            nama: "Alex Haye",
+            umur: 39
+        }
+        const {nama: n, umur: u} = personal // <- mengubah property nama menjadi n dan umur menjadi u pada saat di destructuring
+        console.info(n, u)
+
+        // Mengganti nama property dan menambah property serta memberikan nilai default property yang di destructuring untuk dijadikan variable tersendiri
+        const hero = {
+            name: "RagNarok",
+            skill: "assasins",
+            // power: 5000
+        }
+        const {name: heroName, skill: skillHero, power: powerHero = 1000} = hero
+        console.log(heroName)
+        console.log(skillHero)
+        console.log(powerHero)
+
+        // Rest Parameter Pada Object
+        const jagoan = {
+            name: "RagNarok",
+            skill: "assasins",
+            power: 5000
+        }
+        const { name: character, ...ability } = jagoan
+        console.info(ability) // {skill: 'assasins', power: 5000} <- membuat object tersendiri dari rest parameter
+
+        // Mengambil field pada object, setelah dikirim sebagai parameter untuk function
+        // Cara lama
+        const goodPeople = {
+            id: 1213,
+            nama: "Kiki afRianto",
+            kelas: 302
+        }
+
+        // menangkap field pada object dengan function (cara lama)
+        // function getId(goodPeople) {
+        //     return console.info(goodPeople.id)
+        // }
+        // getId(goodPeople)
+
+        // Cara baru dengan destructuring
+        function getId({id}) { // <- parameter diisi dengan field object yang ingin di tampilkan
+            return console.info(id) // 1213
+        }
+        getId(goodPeople) // <- panggil function dengan parameternya berisi nama object
+
+        // Contoh lain apabila isi parameter pada function berupa rest parameter
+        function getAll({id, ...allInfo}) { // <- parameter diisi dengan field object yang ingin di tampilkan salah satunya berupa rest parameter
+            return console.info(id, allInfo) // 1213 {nama: 'Kiki afRianto', kelas: 302} (rest parameter mengembalikan object)
+        }
+        getAll(goodPeople) // <- panggil function dengan parameternya berisi nama object
+
+    </script>
+</body>
+</html>
