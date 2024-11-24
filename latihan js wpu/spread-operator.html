@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread Operator</title>
+</head>
+<style> 
+    body {
+        background-color: salmon;
+        color: white;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 5em;
+        font-stretch:narrower;
+    }
+    
+    .nama span {
+        transition: .3s;
+        display: inline-block;
+
+    }
+
+    .nama span:hover {
+        transform: scale(2);
+    }
+</style>
+<body>
+    <!-- <ul>
+        <li>Kiki</li>
+        <li>Afrianto</li>
+        <li>Brata</li>
+    </ul> -->
+
+    <h1 class="nama">Raniah</h1>
+    <script>
+        // Spread Operator u/ memecah iterables menjadi single element
+        const mhs = ["Kiki", "Afrian", "Brata"];
+        // console.info(...mhs[0])
+
+        // Kapan menggunakan spread operator
+        // Menggabungkan 2 array atau lebih
+        // Contoh
+        const pria = ["Kiki", "Afrianto", "Brata"];
+        const wanita = ["Raniah", "Nurfadilah", "Uyey"]
+        const people = ["Teh Yani", "Teh Ucin", "Teh Mbok"]
+        const couple = [...pria, "Pramudi", ...wanita, ...people,"Kelvin"]
+        // console.info(couple)
+
+        // Mengcopy array
+        const mahasiswa = ["Kiki", "Afrianto", "Brata"]
+        const mahasiswa1 = [...mahasiswa]
+        mahasiswa1[0] = "Raniah"
+        // console.info(mahasiswa, mahasiswa1)
+
+        const orgGanteng = document.querySelectorAll('ul li')
+        // const ganteng = []
+        // push ke array kosong dengan for biasa
+        // for (let i = 0; i < orgGanteng.length; i++) {
+        //     ganteng.push(orgGanteng[i].textContent)
+        // }
+
+        // push menggunakan map
+        // Karna nodelist bukan array maka gunakan spread operator ...namavariable
+        const ganteng = [...orgGanteng].map(name => name.textContent)
+        console.info(ganteng)
+
+        // Latihan
+        const nama = document.querySelector('.nama')
+        const huruf = [...nama.textContent].map(item => `<span>${item}</span>`).join("")
+        nama.innerHTML = huruf
+        console.info(huruf)
+
+    </script>
+</body>
+</html>
