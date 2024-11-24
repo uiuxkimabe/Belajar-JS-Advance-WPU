@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest Parameter</title>
+</head>
+<body>
+    <script>
+        // Rest Parameter a/ Merepresentasikan argument pada function dengan jumlah yang tidak terbatas menjadi sebuah array
+        // Rest parameter hanya bisa digunakan di akhir parameternya
+        
+        // function myFunc(a, b, ...myArgs) {
+        //     // return `${a} ${b} ${myArgs}`
+        //     // return myArgs
+        // }
+
+        // // console.info(myFunc(1,2,3,4,5,6,7,8))
+
+        // function jumlahKan(...argue) {
+        //     // Gunakan high order function
+        //     return argue.reduce((summary,value) => summary + value)
+
+        //     // Gunakan for of
+        //     // let total = 0
+        //     // for (const items of argue) {
+        //     //     total += items
+        //     // }
+        //     // return total
+        // }
+
+        // console.info(jumlahKan(1,2,3,4,5))
+
+        // Array Destructuring
+        const siswa = ["Kiki", "Afrian", "Raniah", "Nurfadilah", "Anto", "ilyas"]
+        const [ketua, wakil, ...pasukan] =siswa
+        // console.info(pasukan)
+
+        // object destructuring
+        // const team = {
+        //     pm: "kiki",
+        //     uiux: "Raniah",
+        //     frontEnd1: "afrian",
+        //     backEnd1: "Brata",
+        //     backEnd2: "Afrianto"
+        // }
+
+        // const {pm, ...allteam} = team
+        // console.info(allteam)
+
+        // Filter
+        function filterBy(type, ...values) {
+            return values.filter(v => typeof v === type)
+        }
+
+        console.info(filterBy('number', 1,2,3, false, true, 'Kim', ["ojan", "ableh"]))
+
+
+    </script>
+</body>
+</html>
