@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Of & For In</title>
+</head>
+<body>
+
+    <ul>
+        <li class="name">Kiki</li>
+        <li class="name">Afrianto</li>
+        <li class="name">Brata</li>
+    </ul>
+
+    <script>
+
+        // For of a/ sebuah looping yang berfungsi menelusuri object iterable
+        // Object iterable : array, argument/nodelist, string, typeArray, Map, Set, User-defined iterables
+        // Forof secara default tidak memiliki index
+
+        const mhs = ["Kiki", "Rani", "Afrian"]
+
+        // Jika Memanggil Menggunakan for biasa
+        // for hanya bisa dilakukan untuk array atau type data sejenis
+        // Tidak bisa melakukan iterable pada string
+        for (let i = 0; i < mhs.length; i++) {
+            console.info(`Menggunakan for biasa : ${mhs[i]}`)
+        } 
+
+        // Jika Memanggil Menggunakan ForEach
+        // ForEach hanya bisa dilakukan untuk array atau type data sejenis
+        // Tidak bisa melakukan iterable pada string
+        mhs.forEach(element => {
+           console.info(`Menggunakan ForEach : ${element}`) 
+        });
+
+        // Jika Menggunakan FOROF
+        for (const element of mhs) {
+            console.info(`Menggunakan For Of : ${element}`)
+        }
+
+        // Melooping String
+        // ForOf Bisa melakukan iterable pada string
+        const bidadari = "Raniah Nurfadilah"
+        for (const pecahHuruf of bidadari) {
+            console.info(`Pecah Huruf for Of : ${pecahHuruf}`)
+            console.info(typeof pecahHuruf)
+        }
+
+        // Secara default for of tidak memiliki index, jika ingin mengtahui index bisa dilakukan dengan cara berikut
+        // Caranya dengan menambahkan .entries() pada nama arr / object yang dipanggil
+        // Lalu lakukan destructuring pada variable baru
+        // dikarnakan hasilnya berupa array berisi [index, value] maka destructuring harus tersusun. index dulu baru value
+
+        const data = ["Kiki", "Raniah", "Nurfadilah"]
+        for (const [i, listData] of data.entries()) {
+            console.info(`${listData} posisi ke ${i}`)
+        }
+
+        // Menngkap Nodelist dengan forof
+        const listNama = document.querySelectorAll('.name');
+
+        // Contoh memanggil Nodelist menggnakan foreach
+        listNama.forEach(element => {
+            console.info(element.textContent) // textContent u/ menampilkan isinya
+        });
+
+        // Contoh memanggil nodelist dengan forof
+        for (const list of listNama) {
+            console.info(list.textContent) // textContent u/ menampilkan isinya
+        }
+
+        // Menangkap arguments dengan forof
+        function jumlahAngka() {
+
+           //arguments // <- ini akan menangkap argument apapun yang diisi saat function dipanggil disertai argument (meskipun function tidak memiliki arguments)
+           // arguments tidak bisa menggunakan reduce, dan forEach
+            let total = 0
+           for (const e of arguments) {
+                total += e
+           }
+           return total
+           
+        }
+
+        console.info(jumlahAngka(1, 2, 3, 4, 5)) // <- angka di arguments ini akan di tampung di arguments atas (dalam function)
+
+
+        // For In a/ looping yang hanya untuk iterable enumerable (properti pada object)
+        // for of tidak berlaku untuk melakukan iterable pada object
+        const person = {
+            nama: "Kiki Afrianto",
+            kelas: 302,
+            email: "kiki@halo.com"
+        }
+
+        for (const check in person) {
+            console.info(`Iterable for In : ${check}`)
+            // jika ingin mengambil value property spesifik bisa panggil dengan cara ini
+            console.info(person[check]) //check berperan mengambil indexnya
+        }
+
+
+
+    </script>
+</body>
+</html>

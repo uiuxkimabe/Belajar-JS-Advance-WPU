@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring Function</title>
+</head>
+<body>
+    <script>
+
+        // function kalkulasi(a,b) {
+        //     return [a + b, a * b, a - b]
+        // }
+
+        // destructuring function disertai dengan nilai default
+        // const[hasilJumlah = 0, hasilKali = 0, hasilKurang = 0, hasilBagi = 0] = kalkulasi(2,3)
+        // console.info(hasilBagi)
+        // Pada destructuring array urutan sangat berpengaruh
+        // Agar tidak berpengaruh bisa menggunakan object destructuring
+
+        // function hitung(nilaiA, nilaiB) {
+        //     return {
+        //         tambah: nilaiA + nilaiB,
+        //         kurang: nilaiA - nilaiB,
+        //         kali: nilaiA * nilaiB,
+        //         bagi: nilaiA / nilaiB
+        //     }
+        // }
+        
+        // destructuring object (urutan tidak berpengaruh) nama destructuring harus sama dengan parameter object nya
+        // const { tambah = 'Belum Masuk List', kurang  = 'Belum Masuk List', kali  = 'Belum Masuk List' } = hitung(2, 3)
+        // console.info(kurang)
+
+        // Melakukan Destruction Function Argument
+
+        // Jika menggunakan function declaration biasa
+        const mhs1 = {
+            nama: "Kiki Afrianto",
+            kelas: 302,
+            email: "kikiafrianto@halo.com",
+            nilai: {
+                tugas: 90,
+                uts: 80,
+                uas: 75
+            }
+        }
+
+        function cetakObject({nama, kelas, nilai: {tugas, uas, uts}}) { // object langsung destruturing menjadi argument, jika object bersarang bosa di destructuring dengan cara tersebut argument: {value yang ingin di destructuring}
+            return `Halo saya ${nama} kelas ${kelas}, berikut nilai kuliah uas saya ${uas}`;
+        }
+
+        console.info(cetakObject(mhs1)) // Halo saya Kiki Afrianto kelas 302, berikut nilai kuliah uas saya 75
+        
+         
+
+
+    </script>
+    
+</body>
+</html>
