@@ -8,4 +8,8 @@ function login(userName) {
     }, 300);
 }
 
+function getToken(userName) {
+    
+}
+
 console.info(login('Cindys'))
